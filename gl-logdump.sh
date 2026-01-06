@@ -17,7 +17,7 @@ run() {
 }
 
 # -----------------------------
-# Modem/Cellular dump (best-effort)
+# Modem/Cellular dump
 # -----------------------------
 modem_dump() {
   OUTFILE="$1"
