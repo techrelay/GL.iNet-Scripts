@@ -1,5 +1,5 @@
 #!/bin/sh
-# gl-logbundle.sh - GL.iNet/OpenWrt support bundle + modem/cellular dump (best-effort)
+# gl-logbundle.sh - GL.iNet/OpenWrt support bundle + modem/cellular dump 
 # Output: /tmp/gl-bundle-<hostname>-<timestamp>.tar.gz
 # Usage: gl-logbundle.sh
 set -eu
@@ -26,7 +26,7 @@ modem_dump() {
   cmd() { w ""; w "### $*"; ( "$@" ) >>"$OUTFILE" 2>&1 || true; }
 
   find_buses() {
-    # 1) From glconfig (common GL.iNet location)
+    # 1) From glconfig 
     if [ -f /etc/config/glconfig ]; then
       grep -E "list[[:space:]]+bus" /etc/config/glconfig 2>/dev/null \
         | sed -n "s/.*list[[:space:]]\+bus[[:space:]]\+'\([^']\+\)'.*/\1/p"
@@ -67,7 +67,7 @@ modem_dump() {
   cmd logread -e mhi
   cmd dmesg
 
-  # If gl_modem isn't present, stop cleanly
+  # If gl_modem isn't present, stop
   if ! command -v gl_modem >/dev/null 2>&1; then
     w ""
     w "gl_modem not found on this firmware."
@@ -93,7 +93,7 @@ modem_dump() {
     return 0
   fi
 
-  # For each bus, attempt safe AT queries (best-effort)
+  # For each bus, AT queries 
   for BUS in $BUSES; do
     w ""
     w "=============================="
@@ -110,7 +110,7 @@ modem_dump() {
     cmd gl_modem -B "$BUS" AT AT+CEREG?
     cmd gl_modem -B "$BUS" AT AT+CGPADDR
 
-    # Quectel-ish (safe if supported; harmless if not)
+    # Quectel-ish 
     cmd gl_modem -B "$BUS" AT AT+QGMR
     cmd gl_modem -B "$BUS" AT AT+QNWINFO
   done
@@ -156,7 +156,7 @@ run 31-dmesg.txt dmesg
 # Modem/Cellular dump (combined)
 modem_dump "$OUTDIR/50-modem-dump.txt"
 
-# Basic redaction pass (best-effort, not perfect)
+# Basic redaction pass 
 # Redact strings like password=, key=, token= in UCI dumps
 for f in "$OUTDIR"/2*-uci-*.txt; do
   [ -f "$f" ] || continue
