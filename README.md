@@ -7,14 +7,14 @@ A collection of scripts for GL.iNet Routers.
 ---
 ## Log Dump Utility
 
-    ## 🚀 Quick Start
+ ## 🚀 Quick Start
 
-    Run the script without cloning the repository:
+Run the script without cloning the repository:
 
-    ```bash
-    wget -O /usr/bin/gl-logdump https://raw.githubusercontent.com/techrelay/GL.iNet-Scripts/refs/heads/main/gl-logdump.sh && chmod +x /usr/bin/gl-logdump
-    ```
+```bash
+wget -O /usr/bin/gl-logdump https://raw.githubusercontent.com/techrelay/GL.iNet-Scripts/refs/heads/main/gl-logdump.sh && chmod +x /usr/bin/gl-logdump
+```
 
-    Script will be placed in /usr/bin so you may simply run the command gl-logdump.
+Script will be placed in /usr/bin so you may simply run the command gl-logdump.
 
 ---
