@@ -5,7 +5,7 @@ A collection of scripts for GL.iNet Routers.
 
 
 ---
-## 🚀 Log Dump Utility Quick Start 🚀
+## 🚀 Log Dump Utility - Quick Start 🚀
 
 Run the script without cloning the repository:
 
